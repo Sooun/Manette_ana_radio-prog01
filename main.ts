@@ -1,22 +1,146 @@
+input.onButtonPressed(Button.A, function () {
+    if (K_vitesse == Vitesse5) {
+        // Facteur de vitesse des moteurs , compris entre 0 et 100
+        K_vitesse = Vitesse4
+        basic.showLeds(`
+            . . . . .
+            . . . # .
+            . . # # .
+            . # # # .
+            # # # # .
+            `)
+    } else if (K_vitesse == Vitesse4) {
+        // Facteur de vitesse des moteurs , compris entre 0 et 100
+        K_vitesse = Vitesse3
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            . . # . .
+            . # # . .
+            # # # . .
+            `)
+    } else if (K_vitesse == Vitesse3) {
+        // Facteur de vitesse des moteurs , compris entre 0 et 100
+        K_vitesse = Vitesse2
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            . . . . .
+            . # . . .
+            # # . . .
+            `)
+    } else if (K_vitesse == Vitesse2) {
+        // Facteur de vitesse des moteurs , compris entre 0 et 100
+        K_vitesse = Vitesse1
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            . . . . .
+            . . . . .
+            # . . . .
+            `)
+    } else {
+        // Facteur de vitesse des moteurs , compris entre 0 et 100
+        K_vitesse = Vitesse1
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            . . . . .
+            . . . . .
+            # . . . .
+            `)
+    }
+})
+input.onButtonPressed(Button.B, function () {
+    if (K_vitesse == Vitesse1) {
+        // Facteur de vitesse des moteurs , compris entre 0 et 100
+        K_vitesse = Vitesse2
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            . . . . .
+            . # . . .
+            # # . . .
+            `)
+    } else if (K_vitesse == Vitesse2) {
+        // Facteur de vitesse des moteurs , compris entre 0 et 100
+        K_vitesse = Vitesse3
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            . . # . .
+            . # # . .
+            # # # . .
+            `)
+    } else if (K_vitesse == Vitesse3) {
+        // Facteur de vitesse des moteurs , compris entre 0 et 100
+        K_vitesse = Vitesse4
+        basic.showLeds(`
+            . . . . .
+            . . . # .
+            . . # # .
+            . # # # .
+            # # # # .
+            `)
+    } else if (K_vitesse == Vitesse4) {
+        // Facteur de vitesse des moteurs , compris entre 0 et 100
+        K_vitesse = Vitesse5
+        basic.showLeds(`
+            . . . . #
+            . . . # #
+            . . # # #
+            . # # # #
+            # # # # #
+            `)
+    } else {
+        // Facteur de vitesse des moteurs , compris entre 0 et 100
+        K_vitesse = Vitesse5
+        basic.showLeds(`
+            . . . . #
+            . . . # #
+            . . # # #
+            . # # # #
+            # # # # #
+            `)
+    }
+})
 let y = 0
 let x = 0
 let Y_valeur = 0
 let X_valeur = 0
 let Moteur_D = 0
 let Motor_G = 0
+let K_vitesse = 0
+let Vitesse1 = 0
+let Vitesse2 = 0
+let Vitesse3 = 0
+let Vitesse4 = 0
+let Vitesse5 = 0
 radio.setGroup(1)
 pins.setPull(DigitalPin.P13, PinPullMode.PullUp)
 pins.setPull(DigitalPin.P15, PinPullMode.PullUp)
 pins.setPull(DigitalPin.P14, PinPullMode.PullUp)
 pins.setPull(DigitalPin.P16, PinPullMode.PullUp)
+Vitesse5 = 100
+Vitesse4 = 40
+Vitesse3 = 25
+Vitesse2 = 18
+Vitesse1 = 11
 // Facteur de vitesse des moteurs , compris entre 0 et 100
-let K_vitesse = 100
+K_vitesse = Vitesse3
 // Poids du second moteur. Compris entre 50 et 0.
 // 50 => On tourne très peu
 // 18 => Bon compromis
 // 10 => On tourne très fort.
 // 0 => Jostick directionnel ON/OFF
 let K_joystick = 18
+basic.showLeds(`
+    . . . . .
+    . . . . .
+    . . # . .
+    . # # . .
+    # # # . .
+    `)
 basic.forever(function () {
     if (pins.digitalReadPin(DigitalPin.P15) == 0) {
         basic.showString("" + convertToText(Motor_G) + ";" + convertToText(Moteur_D))
