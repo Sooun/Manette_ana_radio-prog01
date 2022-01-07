@@ -146,8 +146,6 @@ basic.forever(function () {
         basic.showString("" + convertToText(Motor_G) + ";" + convertToText(Moteur_D))
     } else if (pins.digitalReadPin(DigitalPin.P13) == 0) {
     	
-    } else if (pins.digitalReadPin(DigitalPin.P16) == 0) {
-        basic.showNumber(Motor_G)
     } else if (pins.digitalReadPin(DigitalPin.P14) == 0) {
         basic.showNumber(Moteur_D)
     } else {
