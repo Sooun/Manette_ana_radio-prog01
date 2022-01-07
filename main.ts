@@ -47,8 +47,8 @@ basic.forever(function () {
             Motor_G = 0
             Moteur_D = 0
         }
-        Motor_G = Motor_G * K_vitesse * 25
-        Moteur_D = Moteur_D * K_vitesse * 25
+        Motor_G = Math.trunc(Motor_G * K_vitesse * 0.025)
+        Moteur_D = Math.trunc(Moteur_D * K_vitesse * 0.025)
         radio.sendString("" + convertToText(Motor_G) + ";" + convertToText(Moteur_D))
     }
 })
