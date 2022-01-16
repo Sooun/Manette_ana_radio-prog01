@@ -106,12 +106,12 @@ input.onButtonPressed(Button.B, function () {
             `)
     }
 })
+let Moteur_D = 0
+let Motor_G = 0
 let y = 0
 let x = 0
 let Y_valeur = 0
 let X_valeur = 0
-let Moteur_D = 0
-let Motor_G = 0
 let K_vitesse = 0
 let Vitesse1 = 0
 let Vitesse2 = 0
@@ -147,13 +147,13 @@ basic.showLeds(`
     `)
 basic.forever(function () {
     // Dans la première partie du 'Si' on vient lire les 5 boutons poussoirs de la manette
-    if (pins.digitalReadPin(DigitalPin.P15) == 0) {
-        basic.showString("" + convertToText(Motor_G) + ";" + convertToText(Moteur_D))
-    } else if (pins.digitalReadPin(DigitalPin.P13) == 0) {
+    if (pins.digitalReadPin(DigitalPin.P16) == 0) {
     	
     } else if (pins.digitalReadPin(DigitalPin.P14) == 0) {
+    	
+    } else if (pins.digitalReadPin(DigitalPin.P13) == 0) {
         radio.sendValue("Servo1", 4)
-    } else if (pins.digitalReadPin(DigitalPin.P16) == 0) {
+    } else if (pins.digitalReadPin(DigitalPin.P15) == 0) {
         radio.sendValue("Servo1", -4)
     } else if (pins.digitalReadPin(DigitalPin.P8) == 0) {
         pins.analogWritePin(AnalogPin.P12, 1023)
